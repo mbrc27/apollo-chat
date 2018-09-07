@@ -1,0 +1,37 @@
+version: '2'
+services:
+  api:
+    container_name: api
+    working_dir: /api
+    env_file: .env
+    build:
+        context: ./api
+        args:
+          uid: "${HOST_USER_UID}"
+    environment:
+        DATABASE: postgres
+        NODE_ENV: "$NODE_ENV"
+    ports:
+        - "${API_PORT}:${API_PORT}"
+        - "${INSPECT_PORT}:${INSPECT_PORT}"
+    volumes:
+        - ../.:/api
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  postgres:
+      image: postgres:9.4
+      container_name: postgres
+      volumes:
+        - ../data/postgres:/data/postgres
+      environment:
+        POSTGRES_USER: ${DATABASE_USER}
+        POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+        PGDATA: /data/postgres
+
+      ports:
+        - "${DATABASE_PORT}:${DATABASE_PORT}"
+      restart: unless-stopped
