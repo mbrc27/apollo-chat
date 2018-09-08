@@ -4,8 +4,8 @@
         "moduleResolution": "node",
         "module": "commonjs",
         "sourceMap": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
+        // "noImplicitAny": true,
+        // "strictNullChecks": true,
         "outDir": "dist/server",
         "baseUrl": ".",
         "lib": ["es2017", "dom", "esnext"],
@@ -13,7 +13,9 @@
             "*": [
                 "node_modules/*"
             ]
-        }
+        },
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
     },
     "include": [
         "src/**/*"

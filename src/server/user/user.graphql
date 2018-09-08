@@ -8,4 +8,5 @@ type User {
   username: String!
   email: String!
   role: String
+  messages: [Message!]
 }

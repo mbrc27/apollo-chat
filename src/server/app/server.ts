@@ -7,12 +7,14 @@ import resolvers from './resolvers';
 
 console.log(process.env.NODE_ENV);
 
-export const startServer = async (port: number | string) => {
-
+export const startServer = async (port: number | string, models) => {
     const server = new ApolloServer({
         playground: !!(process.env.NODE_ENV === 'development'),
         typeDefs: gql`${importSchema('./src/server/app/schema.graphql')}`,
         resolvers,
+        context: {
+            models,
+        }
     });
 
     const app = new Hapi.Server({

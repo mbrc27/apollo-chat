@@ -1,0 +1,11 @@
+type Query {
+  messages(cursor: String, limit: Int): [Message]!
+  message(id: ID!): Message!
+}
+
+type Message {
+  id: ID!
+  text: String!
+  createdAt: String!
+  user: User!
+}

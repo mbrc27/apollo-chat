@@ -1,12 +1,3 @@
-import { IResolvers } from "graphql-tools";
-
-const users = [{
-    id: '1',
-    username: 'Spanky',
-    email: 'spanki@wp.pl',
-    role: 'admin',
-}];
-
 type User = {
     id: string,
     username: string,
@@ -16,11 +7,11 @@ type User = {
 
 const UserResolver = {
     Query: {
-        users: async (): Promise<User[]> => {
-            return users;
+        users: async (_, args, { models }): Promise<User[]> => {
+            return await models.User.find();
         },
-        user: async (): Promise<User> => {
-            return users[0];
+        user: async (_, { id }, { models }): Promise<User> => {
+            return await models.User.findOne(id);
         },
     },
 };
