@@ -8,19 +8,18 @@
         // "noImplicitAny": true,
         // "strictNullChecks": true,
         "allowJs": true,
-        "jsx": "react",
-        "outDir": "dist/server",
+        "outDir": "./dist",
         "baseUrl": ".",
         "lib": ["es2017", "dom", "esnext"],
         "paths": {
             "*": [
-                "node_modules/*"
+                "./node_modules/*"
             ]
         },
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
     },
     "include": [
-        "server/src/**/*",
+        "./src/**/*",
     ]
 }

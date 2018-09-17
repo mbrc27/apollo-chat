@@ -1,5 +1,25 @@
 version: '3'
 services:
+  client:
+    container_name: client
+    working_dir: /client
+    build:
+        context: ./client
+    environment:
+      env_file: .env
+      NODE_ENV: "$NODE_ENV"
+      CLIENT_PORT: "$CLIENT_PORT"
+    ports:
+        - "${CLIENT_PORT}:${CLIENT_PORT}"
+    volumes:
+        - ../client/.:/client
+        - ../build:/client/build
+    links:
+      - api
+    depends_on:
+      - api
+    restart: unless-stopped
+
   api:
     container_name: api
     working_dir: /api
@@ -15,7 +35,7 @@ services:
         - "${API_PORT}:${API_PORT}"
         - "${INSPECT_PORT}:${INSPECT_PORT}"
     volumes:
-        - ../.:/api
+        - ../server/.:/api
     links:
       - postgres
       - prisma
@@ -41,7 +61,7 @@ services:
       image: postgres:10.5
       container_name: postgres
       volumes:
-        - ../data/postgres:/data/postgres
+        - ../.data/postgres:/data/postgres
       environment:
         POSTGRES_USER: ${DATABASE_USER}
         POSTGRES_PASSWORD: ${DATABASE_PASSWORD}

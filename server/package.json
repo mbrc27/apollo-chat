@@ -1,0 +1,43 @@
+{
+  "name": "apollo-chat-server",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prisma:schema": "npx graphql get-schema --endpoint http://localhost:4466 --output ./src/database/generated/prisma.graphql --no-all",
+    "prisma:codegen": "npx graphql codegen",
+    "build:server": "tsc",
+    "run:server": "node ./dist/index.js",
+    "start:server": "NODE_ENV=production npm-run-all build:server run:server",
+    "dev:server": "NODE_ENV=development nodemon"
+  },
+  "dependencies": {
+    "apollo-resolvers": "^1.4.1",
+    "apollo-server": "^2.0.7",
+    "apollo-server-hapi": "^2.0.6",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^6.0.0",
+    "graphql": "14.0.2",
+    "graphql-import": "^0.7.0",
+    "graphql-resolvers": "^0.2.2",
+    "graphql-tag": "^2.9.2",
+    "graphql-tools": "^3.1.1",
+    "hapi": "^17.5.4",
+    "jsonwebtoken": "^8.3.0",
+    "npm-run-all": "^4.1.3",
+    "prisma-binding": "^2.1.5",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.1",
+    "@types/hapi": "^17.0.19",
+    "@types/jsonwebtoken": "^7.2.8",
+    "@types/node": "^10.9.4",
+    "graphql-cli": "^2.16.7",
+    "nodemon": "^1.18.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  },
+  "resolutions": {
+    "graphql": "14.0.2"
+  }
+}
