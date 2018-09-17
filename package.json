@@ -9,7 +9,11 @@
     "build:server": "tsc",
     "run:server": "node ./dist/server/index.js",
     "start:server": "NODE_ENV=production npm-run-all build:server run:server",
-    "dev:server": "NODE_ENV=development nodemon"
+    "dev:server": "NODE_ENV=development nodemon",
+    "start:client": "react-scripts-ts start --outDir='dist/client'",
+    "build:client": "react-scripts-ts build --outDir='dist/client'",
+    "eject": "react-scripts-ts eject",
+    "test": "react-scripts-ts test --env=jsdom"
   },
   "dependencies": {
     "apollo-resolvers": "^1.4.1",
@@ -26,15 +30,21 @@
     "jsonwebtoken": "^8.3.0",
     "npm-run-all": "^4.1.3",
     "prisma-binding": "^2.1.5",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.1",
     "@types/hapi": "^17.0.19",
+    "@types/jest": "^23.3.2",
     "@types/jsonwebtoken": "^7.2.8",
     "@types/node": "^10.9.4",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
     "graphql-cli": "^2.16.7",
     "nodemon": "^1.18.4",
+    "react-scripts-ts": "^2.17.0",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"
   },

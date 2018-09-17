@@ -8,6 +8,7 @@
         // "noImplicitAny": true,
         // "strictNullChecks": true,
         "allowJs": true,
+        "jsx": "react",
         "outDir": "dist/server",
         "baseUrl": ".",
         "lib": ["es2017", "dom", "esnext"],
