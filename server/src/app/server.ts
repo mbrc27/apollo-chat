@@ -18,7 +18,7 @@ export interface Context {
 export const startServer = async (port: number | string) => {
     const server = new ApolloServer({
         playground: !!(process.env.NODE_ENV === 'development'),
-        typeDefs: gql`${importSchema('./src/server/app/schema.graphql')}`,
+        typeDefs: gql`${importSchema('./server/src/app/schema.graphql')}`,
         resolvers,
         context: async ({ request }: { request: Request }) => {
             return {
