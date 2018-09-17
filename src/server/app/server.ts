@@ -1,23 +1,36 @@
-import * as Hapi from 'hapi';
+import { Server, Request } from 'hapi';
 import { ApolloServer } from 'apollo-server-hapi';
 import gql from 'graphql-tag';
 import { importSchema } from 'graphql-import';
 
+import db from '../database';
 import resolvers from './resolvers';
+import { Prisma, User } from '../database/generated/prisma';
+import { getStateUser } from '../authentication/authentication.helpers';
 
-console.log(process.env.NODE_ENV);
+export interface Context {
+    db: Prisma
+    request: Request,
+    me: User
+    secret: string,
+};
 
-export const startServer = async (port: number | string, models) => {
+export const startServer = async (port: number | string) => {
     const server = new ApolloServer({
         playground: !!(process.env.NODE_ENV === 'development'),
         typeDefs: gql`${importSchema('./src/server/app/schema.graphql')}`,
         resolvers,
-        context: {
-            models,
-        }
+        context: async ({ request }: { request: Request }) => {
+            return {
+                request,
+                db,
+                me: await getStateUser(request),
+                secret: process.env.SECRET,
+            };
+        },
     });
 
-    const app = new Hapi.Server({
+    const app = new Server({
         port: port || process.env.API_PORT,
     });
 

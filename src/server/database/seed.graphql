@@ -1,0 +1,39 @@
+mutation {
+  createUser(data: {
+    email: "developer@example.com"
+    password: "$2a$10$hACwQ5/HQI6FhbIISOUVeusy3sKyUDhSq36fF5d/54aAdiygJPFzm" # plaintext password: "nooneknows"
+    username: "Dźoń"
+    role: "moderator",
+    refreshToken: {
+      create:{
+        token: "c0d32aed-42d6-41f1-a922-5dee520fc8a7"
+      }
+    }
+    messages: {
+      create: [{
+        text: "I like turtles.",
+        channel: {
+          create: {
+           title: "Turtles"
+          }
+        }
+      }, {
+        text: "Daj kamienia"
+        channel: {
+          create: {
+           title: "Stones"
+          }
+        }
+      }, {
+        text: "This is a draft..."
+        channel: {
+          create: {
+           title: "General"
+          }
+        }
+      }]
+    }
+  }) {
+    id
+  }
+}

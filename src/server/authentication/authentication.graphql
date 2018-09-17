@@ -1,0 +1,16 @@
+type Mutation {
+  signUp(
+    username: String!
+    email: String!
+    password: String!
+  ): Tokens!
+
+  signIn(email: String!, password: String!): Tokens!
+  deleteUser(id: ID!): Boolean!
+  getAccessToken(refreshToken: String!): Tokens!
+}
+
+type Tokens {
+  accessToken: String!
+  refreshToken: String!
+}

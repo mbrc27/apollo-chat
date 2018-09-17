@@ -1,2 +1,5 @@
+# import * from "../shared/utils.graphql"
 # import Query.* from "../user/user.graphql"
-# import Query.* from "../message/message.graphql"
+# import Query.*, Mutation.* from "../message/message.graphql"
+# import Query.*, Mutation.*  from "../channel/channel.graphql"
+# import Mutation.*  from "../authentication/authentication.graphql"

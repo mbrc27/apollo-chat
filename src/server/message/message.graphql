@@ -1,11 +1,36 @@
+# import Node from "../shared/utils.graphql"
+
 type Query {
-  messages(cursor: String, limit: Int): [Message]!
+  messages(cursor: String): MessageConnection!
   message(id: ID!): Message!
 }
 
-type Message {
+type Mutation {
+  createMessage(text: String! channelId: String!): Message!
+  deleteMessage(id: ID!): Boolean!
+  updateMessage(id: ID! text: String!): Message!
+}
+
+type MessageConnection {
+  edges: [MessageNode!]!
+  pageInfo: PageInfo!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String!
+  endCursor: String!
+}
+
+type MessageNode {
+  cursor: String!
+  node: Message!
+}
+
+type Message implements Node {
   id: ID!
   text: String!
-  createdAt: String!
-  user: User!
+  author: User!
+  channel: Channel!
 }

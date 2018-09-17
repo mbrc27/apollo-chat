@@ -1,10 +1,15 @@
+# import Node from "../shared/utils.graphql"
+
 type Query {
   users: [User!]
   user(id: ID!): User
+   me: User
 }
 
-type User {
+"A type that describes the user"
+type User implements Node {
   id: ID!
+  "The user's username, should be typed in the login field."
   username: String!
   email: String!
   role: String

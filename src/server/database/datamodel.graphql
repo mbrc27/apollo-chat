@@ -1,0 +1,31 @@
+type User {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  password: String!
+  username: String!
+  email: String @unique
+  role: String
+  messages: [Message!]!
+  refreshToken: Token!
+}
+
+type Message {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  text: String!
+  author: User!
+  channel: Channel!
+}
+
+type Channel {
+  id: ID! @unique
+  title: String!
+  messages: [Message!]!
+}
+
+type Token {
+  id: ID! @unique
+  token: String!
+}
