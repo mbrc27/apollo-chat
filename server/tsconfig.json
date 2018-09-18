@@ -10,7 +10,11 @@
         "allowJs": true,
         "outDir": "./dist",
         "baseUrl": ".",
-        "lib": ["es2017", "dom", "esnext"],
+        "lib": [
+            "es2017",
+            "dom",
+            "esnext"
+        ],
         "paths": {
             "*": [
                 "./node_modules/*"
