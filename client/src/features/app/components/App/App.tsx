@@ -1,18 +1,26 @@
 import * as React from 'react';
-import { Header, Sidebar } from '../../../layout';
+import { ThemeProvider } from 'styled-components';
 
-import { AppIntro } from './styled';
+import { Header, Sidebar, MainContainer } from '../../../layout';
+import { AppIntro, theme } from './styled';
+import { ChannelList } from '../../../channel';
 
 class App extends React.Component {
   public render() {
     return (
-      <>
-        <Header />
-        <Sidebar />
-        <AppIntro>
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </AppIntro>
-      </>
+      <ThemeProvider theme={theme}>
+        <>
+          <Header title="Welcome to React" />
+          <MainContainer>
+            <Sidebar>
+              <ChannelList />
+            </Sidebar>
+            <AppIntro>
+              To get started, edit <code>src/App.tsx</code> and save to reload.
+            </AppIntro>
+          </MainContainer>
+        </>
+      </ThemeProvider>
     );
   }
 }

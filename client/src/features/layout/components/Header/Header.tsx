@@ -1,9 +1,15 @@
 import * as React from 'react';
 import { AppHeader, AppTitle } from './styled';
 
-const Header = () => (
+type Props = {
+  children?: React.ReactNode,
+  title: string,
+};
+
+const Header = ({ children, title }: Props) => (
   <AppHeader>
-    <AppTitle>Welcome to React</AppTitle>
+    <AppTitle>{title}</AppTitle>
+    {children}
   </AppHeader>
 );
 

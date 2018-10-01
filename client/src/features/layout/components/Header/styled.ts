@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const AppHeader = styled.header`
     background-color: #222;
-    height: 150px;
-    padding: 20px;
+    height: ${props => props.theme.headerSize};
+    padding: 10px;
     color: white;
 `
 export const AppTitle = styled.h1`

@@ -1,9 +1,7 @@
-import ApolloClient from 'apollo-boost';
-
 import { UserState } from '../features/user';
 
 
-const clientState = {
+export const clientState = {
     defaults: {
        ...UserState.defaults,
     },
@@ -14,7 +12,3 @@ const clientState = {
     },
 };
 
-export const client = new ApolloClient({
-    uri: 'http://localhost:3001/graphql',
-    clientState,
-});
