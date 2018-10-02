@@ -1,10 +1,5 @@
 import styled, { injectGlobal } from 'styled-components';
 
-export const AppIntro = styled.p`
-    font-size: large;
-    flex-grow: 5;
-`;
-
 export const GlobalStyles = injectGlobal`
   html, body, #root {
     height: 100vh;
@@ -18,3 +13,8 @@ export const GlobalStyles = injectGlobal`
 export const theme = {
   headerSize: '60px',
 };
+
+export const AppIntro = styled.p`
+    font-size: large;
+    flex-grow: 5;
+`;

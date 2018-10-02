@@ -22,6 +22,9 @@
     "typescript": "^3.0.3"
   },
   "scripts": {
+    "schema": "npx apollo schema:download ./src/graphql/schema.json  --endpoint=http://localhost:3001/graphql",
+    "types": "npx apollo codegen:generate --queries=./src/**/*.queries.{ts,tsx} --addTypename --schema=./src/graphql/schema.json --target=typescript",
+    "codegen": "yarn schema && yarn types",
     "start:client": "PORT=3002 react-scripts-ts start",
     "build:client": "react-scripts-ts build",
     "test:client": "react-scripts-ts test --env=jsdom",

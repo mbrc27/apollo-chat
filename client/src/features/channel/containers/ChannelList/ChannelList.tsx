@@ -2,17 +2,17 @@ import * as React from 'react';
 import { graphql, compose } from 'react-apollo';
 
 import {
-  ChannelsResponse,
-  Channel,
   CHANNELS_QUERY,
 } from '../../channel.queries';
 
+import { Channels } from '../../__generated__/Channels';
+
+
 import { ListWrapper } from './styled';
 
-type Props = {
+interface Props extends Channels {
   children: React.ReactNode,
   loading: boolean,
-  channels: Channel[],
 };
 
 const ChannelList = ({ loading, channels, children }: Props) => (
@@ -25,7 +25,7 @@ const ChannelList = ({ loading, channels, children }: Props) => (
 
 
 export default compose(
-  graphql<{}, ChannelsResponse>(CHANNELS_QUERY, {
+  graphql<{}, Channels>(CHANNELS_QUERY, {
     props: ({ data }) => ({ ...data }),
   }),
 )(ChannelList);

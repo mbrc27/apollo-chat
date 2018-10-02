@@ -1,13 +1,7 @@
 import { gql } from 'apollo-boost';
+// import { Query } from 'react-apollo';
 
-export interface Channel {
-  id: string,
-  title: string,
-};
-
-export interface ChannelsResponse {
-  channels: Channel[],
-};
+// import { Channels } from './__generated__/Channels';
 
 export const CHANNELS_QUERY = gql`
   query Channels {
@@ -16,4 +10,8 @@ export const CHANNELS_QUERY = gql`
       title
     }
   }
+`;
+// export class ChannelQuery extends Query<Channels>{ }
+export const SELECT_CHANNEL = gql`
+
 `;
