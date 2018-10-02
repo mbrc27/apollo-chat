@@ -9,7 +9,10 @@ const resolvers = {
   Mutation: {
     selectChannel: (_: any, { id }: any, { cache }: any) => {
       const channels = cache.readQuery({ query: CHANNELS_QUERY });
-      return channels.find((channel: any) => channel.id === id);
+      return {
+        ...channels.find((channel: any) => channel.id === id),
+         __typename: 'currentChannel',
+        };
     }
   }
 };

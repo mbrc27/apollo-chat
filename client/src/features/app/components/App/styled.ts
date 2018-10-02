@@ -16,5 +16,4 @@ export const theme = {
 
 export const AppIntro = styled.p`
     font-size: large;
-    flex-grow: 5;
 `;

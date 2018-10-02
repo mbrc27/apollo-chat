@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { Header, Sidebar, MainContainer } from '../../../layout';
+import { Header, Sidebar, MainContainer, Content } from '../../../layout';
 import { AppIntro, theme } from './styled';
-import { ChannelList } from '../../../channel';
+import { ChannelList, Channel } from '../../../channel';
 
 class App extends React.Component {
   public render() {
@@ -15,9 +15,12 @@ class App extends React.Component {
             <Sidebar>
               <ChannelList />
             </Sidebar>
-            <AppIntro>
-              To get started, edit <code>src/App.tsx</code> and save to reload.
+            <Content>
+              <Channel />
+              <AppIntro>
+                To get started, edit <code>src/App.tsx</code> and save to reload.
             </AppIntro>
+            </Content>
           </MainContainer>
         </>
       </ThemeProvider>

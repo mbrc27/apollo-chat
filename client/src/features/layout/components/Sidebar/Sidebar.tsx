@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { SidebarWrapper } from './styled';
 
-type Props = {
+interface IProps {
   children: React.ReactNode,
 };
 
-const Sidebar = ({ children }: Props) => (
+const Sidebar = ({ children }: IProps) => (
   <SidebarWrapper>
     {children}
   </SidebarWrapper>
