@@ -1,13 +1,12 @@
 {
-  "name": "apollo-chat",
+  "name": "apollo-chat-server",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "private": true,
   "scripts": {
-    "prisma:schema": "npx graphql get-schema --endpoint http://localhost:4466 --output src/server/database/generated/prisma.graphql --no-all",
+    "prisma:schema": "npx graphql get-schema --endpoint http://localhost:4466 --output ./src/database/generated/prisma.graphql --no-all",
     "prisma:codegen": "npx graphql codegen",
     "build:server": "tsc",
-    "run:server": "node ./dist/server/index.js",
+    "run:server": "node ./dist/index.js",
     "start:server": "NODE_ENV=production npm-run-all build:server run:server",
     "dev:server": "NODE_ENV=development nodemon"
   },

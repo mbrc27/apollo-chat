@@ -1,4 +1,7 @@
 # GraphQL, Apollo, React-Apollo, Apollo State playground
 
 ## TODO
- A lot :)
+- tslint config
+- tsconfig
+- A lot :)
+

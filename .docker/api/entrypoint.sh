@@ -1,9 +1,9 @@
 #!/bin/bash
 if [ "$NODE_ENV" = "production" ]
 then
-  yarn start:server
+  yarn && yarn start:server
 else
-  yarn dev:server
+  yarn && yarn dev:server
 fi
 
 while true; do echo a >> /dev/null ; sleep 1; done
